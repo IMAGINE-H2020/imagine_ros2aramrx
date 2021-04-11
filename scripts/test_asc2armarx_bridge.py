@@ -239,11 +239,19 @@ def talker(action):
 #    rospy.spin()
 
     rate = rospy.Rate(1)
-    while not rospy.is_shutdown():
-        test = "test ros2armarx action %s" % rospy.get_time()
-        rospy.loginfo(test)
-        pub.publish(aff)
-        rate.sleep()
+    for i in range(3):
+        if not rospy.is_shutdown():
+            test = "test ros2armarx action %s" % rospy.get_time()
+            rospy.loginfo(test)
+            pub.publish(aff)
+            rate.sleep()
+
+
+#    while not rospy.is_shutdown():
+#        test = "test ros2armarx action %s" % rospy.get_time()
+#        rospy.loginfo(test)
+#        pub.publish(aff)
+#        rate.sleep()
 
 if __name__ == '__main__':
     try:
