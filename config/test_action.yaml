@@ -1,0 +1,24 @@
+sequence:
+- affordance_name: FlippingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
+- affordance_name: RotatingBaseAction
+  asc:
+  - key: 'FlipAngle'
+    value_type: 1
+    value_double: 70
+
+- affordance_name: FlippingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
+- affordance_name: RotatingBaseAction
+  asc:
+  - key: 'FlipAngle'
+    value_type: 1
+    value_double: 70
