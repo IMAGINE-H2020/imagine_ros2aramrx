@@ -2,6 +2,7 @@
 import sys
 # license removed for brevity
 import rospy
+import keyboard
 from imagine_common.msg import Affordance, AscPair, ActionParameters
 from geometry_msgs.msg import Pose
 
@@ -20,8 +21,8 @@ def talker(action):
         asc = AscPair()
         asc.key = "SuckingPose"             # Param <"SuckingPose">
         asc.value_type = 2                  # Param <2>
-        target.position.x = 0.240           # Param pose, translation: in meters; orientation: as quaternion
-        target.position.y = 0.045
+        target.position.x = 0.260           # Param pose, translation: in meters; orientation: as quaternion
+        target.position.y = 0.030
         target.position.z = 0.006
         target.orientation.w = 0.70572561025619507
         target.orientation.x = 0.70672500133514404
@@ -107,7 +108,7 @@ def talker(action):
         asc = AscPair()
         asc.key = "ToolIndex"               # Param <"ToolIndex">
         asc.value_type = 0                  # Param <0>
-        asc.value_str = "4"                 # Param <choose from the valid tool list>
+        asc.value_str = "-1"                 # Param <choose from the valid tool list>
 
         ap.parameters.append(asc)
 
@@ -194,6 +195,22 @@ def talker(action):
         ap.parameters.append(asc)
         ap.parameters.append(asc1)
 
+    elif action == "ReversePumpAction":
+        aff.affordance_name = "SwitchPumpAction"
+
+        asc = AscPair()
+        asc.key = "PumpEnableFlag"          # Param <"PumpEnableFlag">
+        asc.value_type = 0                  # Param <0> for string value
+        asc.value_str = "True"              # Param "True" or "False"
+
+        asc1 = AscPair()
+        asc1.key = "ValveReverseFlag"       # Param <"ValveReverseFlag">
+        asc1.value_type = 0                 # Param <0> for string value
+        asc1.value_str = "True"            # Param "True" or "False"
+
+        ap.parameters.append(asc)
+        ap.parameters.append(asc1)
+
     elif action == "StopPumpAction":
         aff.affordance_name = "SwitchPumpAction"
 
@@ -230,23 +247,68 @@ def talker(action):
 
         ap.parameters.append(asc)
 
+    elif action == "PushingAction":
+        aff.affordance_name = "PushingAction"
+
+        asc = AscPair()
+        asc.key = "LeverPose"               # Param <"ScrewPose">
+        asc.value_type = 2                  # Param <2>
+        target.position.x = 0.212           # Param pose, translation: in meters; orientation (defualt): as quaternion
+        target.position.y = 0.119
+        target.position.z = 0.031
+        target.orientation.w = 0.70023339986801147
+        target.orientation.x = 0.69271087646484375
+        target.orientation.y = 0.098351821303367615
+        target.orientation.z = 0.14195789396762848
+
+        asc.value_pose = target
+
+        ap.parameters.append(asc)
+
     aff.action_parameters_array.append(ap)
 
-
-#    test = "test ros2armarx action %s" % rospy.get_time()
-#    rospy.loginfo(test)
-#    pub.publish(aff)
-#    rospy.spin()
-
+    counter = 0
     rate = rospy.Rate(1)
     while not rospy.is_shutdown():
         test = "test ros2armarx action %s" % rospy.get_time()
         rospy.loginfo(test)
         pub.publish(aff)
+        counter += 1
+        if counter == 3:
+            return
         rate.sleep()
 
 if __name__ == '__main__':
+    action_list = [
+    'SuckingAction',
+    'TeachInAction',
+    'UnscrewingAction',
+    'MoveArmToPoseAction',
+    'SwitchToolAction',
+    'RotatingBaseAction',
+    'FlippingAction',
+    'ShakingAction',
+    'InitializeRobotAction',
+    'PickingUpAction',
+    'CloseJawAction',
+    'OpenJawAction',
+    'SwitchPumpAction',
+    'ReversePumpAction',
+    'StopPumpAction',
+    'SwitchLightAction',
+    'TurnOffLightAction',
+    'PushingAction'
+    ]
+    instr = 'actions to choose, enter a number in the range [{} - {}]:\n'.format(0, (len(action_list)-1))
+    for i, a in enumerate(action_list):
+        instr += ( str(i) + '\t' + a + '\n')
+    instr += 'leave it empty to exit\n'
     try:
-        talker(sys.argv[1])
+        while True:
+            index = raw_input(instr)
+            if index and 0 <= int(index) <= len(action_list):
+                talker(action_list[int(index)])
+            else:
+                sys.exit(0)
     except rospy.ROSInterruptException:
         pass
