@@ -1,4 +1,4 @@
-task: hdd1
+device: hdd1
 description: "hard-coded disassembly sequence for HDD1"
 sequence:
 #- affordance_name: SuckingAction

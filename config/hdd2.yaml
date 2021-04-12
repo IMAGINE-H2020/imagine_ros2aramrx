@@ -1,0 +1,144 @@
+device: hdd2
+description: "hard-coded disassembly sequence for HDD2"
+sequence:
+# disassemble the lid
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '4'
+
+
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.296
+        y: 0.008
+        z: 0.014
+
+# disassemble the magnet
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '5'
+
+- affordance_name: LeverRotateAction  # check this if
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: ''
+
+# change tools for unscrew
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '4'
+
+# unscrew and drop the platter
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.296
+        y: 0.008
+        z: 0.014
+
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
+# unscrew the lower magnet and motor and drop them all
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.296
+        y: 0.008
+        z: 0.014
+
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.296
+        y: 0.008
+        z: 0.014
+
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
+# Flip to the opposite side
+- affordance_name: FlippingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
+# unscrew pcb
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.296
+        y: 0.008
+        z: 0.014
+
+# Drop the tool and go for sucking action
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '-1'
+
+- affordance_name: SuckingAction
+  asc:
+  - key: SuckingPose
+    value_type: 2
+    value_pose:
+        qw: 0.70572561025619507
+        qx: 0.70672500133514404
+        qy: 0.04416978731751442
+        qz: -0.02325459755957126
+        x: 0.240
+        y: 0.045
+        z: 0.006
+
+  - key: SuckingPower
+    value_type: 1
+    value_double: 5.0
+
+
+
