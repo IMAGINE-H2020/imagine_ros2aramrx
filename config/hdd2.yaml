@@ -1,7 +1,7 @@
 device: hdd2
 description: "hard-coded disassembly sequence for HDD2"
 sequence:
-# disassemble the lid
+# disassemble the lid by unscrewing and shaking
 - affordance_name: SwitchToolAction
   asc:
   - key: ToolIndex
@@ -18,9 +18,16 @@ sequence:
         qx: 0
         qy: 0
         qz: 0
-        x: 0.296
-        y: 0.008
-        z: 0.014
+        x: 0.290
+        y: 0.018
+        z: 0.020
+
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
 
 # disassemble the magnet
 - affordance_name: SwitchToolAction
@@ -29,9 +36,9 @@ sequence:
     value_type: 0
     value_str: '5'
 
-- affordance_name: LeverRotateAction  # check this if
+- affordance_name: LeveringAction  # check this if
   asc:
-  - key: ToolIndex
+  - key: ''
     value_type: 0
     value_str: ''
 
@@ -42,7 +49,7 @@ sequence:
     value_type: 0
     value_str: '4'
 
-# unscrew and drop the platter
+# unscrew the platter
 - affordance_name: UnscrewingAction
   asc:
   - key: ScrewPose
@@ -52,9 +59,23 @@ sequence:
         qx: 0
         qy: 0
         qz: 0
-        x: 0.296
-        y: 0.008
-        z: 0.014
+        x: 0.244
+        y: 0.016
+        z: 0.003
+
+# unscrew read-write head
+#- affordance_name: UnscrewingAction
+#  asc:
+#  - key: ScrewPose
+#    value_type: 2
+#    value_pose:
+#        qw: 1
+#        qx: 0
+#        qy: 0
+#        qz: 0
+#        x: 0.305
+#        y: 0.020
+#        z: -0.005
 
 - affordance_name: ShakingAction
   asc:
@@ -72,9 +93,9 @@ sequence:
         qx: 0
         qy: 0
         qz: 0
-        x: 0.296
-        y: 0.008
-        z: 0.014
+        x: 0.280
+        y: 0.004
+        z: 0.046
 
 - affordance_name: UnscrewingAction
   asc:
@@ -85,9 +106,9 @@ sequence:
         qx: 0
         qy: 0
         qz: 0
-        x: 0.296
-        y: 0.008
-        z: 0.014
+        x: 0.240
+        y: 0.006
+        z: -0.016
 
 - affordance_name: ShakingAction
   asc:
@@ -112,9 +133,9 @@ sequence:
         qx: 0
         qy: 0
         qz: 0
-        x: 0.296
-        y: 0.008
-        z: 0.014
+        x: 0.259
+        y: 0.016
+        z: 0.028
 
 # Drop the tool and go for sucking action
 - affordance_name: SwitchToolAction
@@ -128,17 +149,26 @@ sequence:
   - key: SuckingPose
     value_type: 2
     value_pose:
-        qw: 0.70572561025619507
-        qx: 0.70672500133514404
-        qy: 0.04416978731751442
-        qz: -0.02325459755957126
-        x: 0.240
-        y: 0.045
-        z: 0.006
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.297
+        y: 0.049
+        z: 0.002
 
-  - key: SuckingPower
-    value_type: 1
-    value_double: 5.0
+# open jaw action and reset robot
+- affordance_name: OpenJawAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
+
+- affordance_name: CloseAndLevelJawAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
 
 
