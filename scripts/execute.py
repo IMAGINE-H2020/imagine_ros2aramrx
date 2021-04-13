@@ -25,6 +25,7 @@ class ActionSequence(object):
         root_path = rospack.get_path('ros2armarx')
         path = os.path.join(root_path, 'config', '{}.yaml'.format(device))
         self.data = yaml.load(open(path), yaml.Loader)
+        print(self.data['description'])
 
 #    def action_status_update(self, msg: Bool):
     def action_status_update(self, msg):
@@ -80,7 +81,7 @@ class ActionSequence(object):
     def run(self):
         for action in self.data['sequence']:
             self.send_action_to_armarx(self.create_affordance(action))
-            while not self.action_completed:
+            while (not rospy.is_shutdown() and not self.action_completed):
                 self.rate.sleep()
 
 
