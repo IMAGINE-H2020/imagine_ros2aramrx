@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rosrun uibk_libades_ros motiondb --home $HOME/imagine_ws/src/imagine_ades/uibk_ades_db/ADESDB_v2_final/motion_db 
