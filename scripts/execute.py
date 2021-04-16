@@ -93,7 +93,7 @@ if __name__ == "__main__":
         pass
 
 
-#rosrun ros2armarx execute.py hdd1
+# rosrun ros2armarx execute.py
 
 
 
