@@ -62,12 +62,13 @@ sequence:
 #        y: 0.099
 #        z: 0.114
 
-- affordance_name: SwitchToolAction
-  asc:
-  - key: ToolIndex
-    value_type: 0
-    value_str: '2'
+#- affordance_name: SwitchToolAction
+#  asc:
+#  - key: ToolIndex
+#    value_type: 0
+#    value_str: '2'
 
+## ========== screw too small, very difficult ===========
 ## unscrew the platter
 #- affordance_name: UnscrewingAction
 #  asc:
@@ -82,6 +83,7 @@ sequence:
 #        y: 0.016
 #        z: 0.003
 
+## ========== screw too small, very difficult ===========
 ## unscrew read-write head
 #- affordance_name: UnscrewingAction
 #  asc:
@@ -92,8 +94,8 @@ sequence:
 #        qx: 0
 #        qy: 0
 #        qz: 0
-#        x: 0.300
-#        y: 0.000
+#        x: 0.308
+#        y: 0.015
 #        z: -0.017
 
 #- affordance_name: ShakingAction
@@ -109,6 +111,7 @@ sequence:
 #    value_type: 0
 #    value_str: ''
 
+## ========== Tool stuck in the hole ===========
 ## Cutting action
 #- affordance_name: SwitchToolAction
 #  asc:
@@ -147,23 +150,15 @@ sequence:
 #        qx: 0
 #        qy: 0
 #        qz: 0
-#        x: 0.259
+#        x: 0.262
 #        y: 0.016
-#        z: 0.022
+#        z: 0.041
 
 #- affordance_name: ShakingAction
 #  asc:
 #  - key: ''
 #    value_type: 0
 #    value_str: ''
-
-
-## change tools for unscrew (torx8)
-#- affordance_name: SwitchToolAction
-#  asc:
-#  - key: ToolIndex
-#    value_type: 0
-#    value_str: '4'
 
 ## unscrew the read write header
 #- affordance_name: UnscrewingAction
@@ -175,9 +170,9 @@ sequence:
 #        qx: 0
 #        qy: 0
 #        qz: 0
-#        x: 0.277
-#        y: 0.004
-#        z: 0.046
+#        x: 0.287
+#        y: 0.010
+#        z: -0.002
 
 ## Flip to the opposite side
 #- affordance_name: FlippingAction
@@ -185,5 +180,12 @@ sequence:
 #  - key: ''
 #    value_type: 0
 #    value_str: ''
+
+## return tool and finish
+#- affordance_name: SwitchToolAction
+#  asc:
+#  - key: ToolIndex
+#    value_type: 0
+#    value_str: '-1'
 
 
