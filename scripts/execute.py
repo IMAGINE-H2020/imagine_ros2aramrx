@@ -87,7 +87,7 @@ class ActionSequence(object):
 
 if __name__ == "__main__":
     try:
-        act = ActionSequence("hdd4")
+        act = ActionSequence("hdd1")
         act.run()
     except rospy.ROSInterruptException:
         pass
