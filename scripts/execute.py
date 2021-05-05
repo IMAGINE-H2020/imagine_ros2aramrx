@@ -24,6 +24,7 @@ class ActionSequence(object):
         rospack = rospkg.RosPack()
         root_path = rospack.get_path('ros2armarx')
         path = os.path.join(root_path, 'config', '{}.yaml'.format(device))
+        print(path)
         self.data = yaml.load(open(path), yaml.Loader)
         print(self.data['description'])
 
@@ -86,8 +87,10 @@ class ActionSequence(object):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        raise Exception("please specify the configuration file name")
     try:
-        act = ActionSequence("hdd1")
+        act = ActionSequence(sys.argv[1])
         act.run()
     except rospy.ROSInterruptException:
         pass

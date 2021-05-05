@@ -1,66 +1,66 @@
 device: hdd1
 description: "hard-coded disassembly sequence for HDD1"
 sequence:
-#- affordance_name: InitializeRobotAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+- affordance_name: InitializeRobotAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
-## disassemble the lid by unscrewing and shaking
-#- affordance_name: SwitchToolAction
-#  asc:
-#  - key: ToolIndex
-#    value_type: 0
-#    value_str: '4'
+# disassemble the lid by unscrewing and shaking
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '4'
 
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.292
-#        y: 0.018
-#        z: 0.017
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.292
+        y: 0.018
+        z: 0.017
 
-#- affordance_name: ShakingAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
 
-## unscrew the platter
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.240
-#        y: 0.016
-#        z: 0.003
+# unscrew the platter
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.240
+        y: 0.016
+        z: 0.003
 
-## unscrew read-write head
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.290
-#        y: 0.014
-#        z: -0.015
+# unscrew read-write head
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.290
+        y: 0.006
+        z: -0.015
 
 ## unscrew magnet
 #- affordance_name: UnscrewingAction
@@ -76,153 +76,153 @@ sequence:
 #        y: 0.014
 #        z: 0.017
 
-## disassemble the magnet
-#- affordance_name: SwitchToolAction
-#  asc:
-#  - key: ToolIndex
-#    value_type: 0
-#    value_str: '5'
+# disassemble the magnet
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '5'
 
-#- affordance_name: LeveringAction  # check this if
-#  asc:
-#  - key: LeverPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.292
-#        y: 0.099
-#        z: 0.114
+- affordance_name: LeveringAction  # check this if
+  asc:
+  - key: LeverPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.292
+        y: 0.099
+        z: 0.114
 
-## change tools for unscrew flat (read write shaft)
-#- affordance_name: SwitchToolAction
-#  asc:
-#  - key: ToolIndex
-#    value_type: 0
-#    value_str: '1'
+# change tools for unscrew flat (read write shaft)
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '1'
 
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.288
-#        y: 0.01
-#        z: 0.022
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.288
+        y: 0.01
+        z: 0.022
 
-#- affordance_name: ShakingAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
-## change tools for unscrew (torx8)
-#- affordance_name: SwitchToolAction
-#  asc:
-#  - key: ToolIndex
-#    value_type: 0
-#    value_str: '4'
+# change tools for unscrew (torx8)
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '4'
 
-## unscrew the lower magnet and motor and drop them all
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.277
-#        y: 0.004
-#        z: 0.046
+# unscrew the lower magnet and motor and drop them all
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.285
+        y: 0.004
+        z: 0.046
 
-## Unscrew motor
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.253
-#        y: 0.006
-#        z: 0.020
+# Unscrew motor
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.253
+        y: 0.006
+        z: 0.020
 
-#- affordance_name: ShakingAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
-## Flip to the opposite side
-#- affordance_name: FlippingAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+# Flip to the opposite side
+- affordance_name: FlippingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
-## unscrew lid opposite
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.271
-#        y: 0.016
-#        z: -0.036
+# unscrew lid opposite
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.271
+        y: 0.016
+        z: -0.036
 
-#- affordance_name: ShakingAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
-## unscrew pcb
-#- affordance_name: UnscrewingAction
-#  asc:
-#  - key: ScrewPose
-#    value_type: 2
-#    value_pose:
-#        qw: 1
-#        qx: 0
-#        qy: 0
-#        qz: 0
-#        x: 0.269
-#        y: 0.016
-#        z: 0.022
+# unscrew pcb
+- affordance_name: UnscrewingAction
+  asc:
+  - key: ScrewPose
+    value_type: 2
+    value_pose:
+        qw: 1
+        qx: 0
+        qy: 0
+        qz: 0
+        x: 0.269
+        y: 0.016
+        z: 0.022
 
-#- affordance_name: ShakingAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+- affordance_name: ShakingAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
-## Drop the tool and go for sucking action
-#- affordance_name: SwitchToolAction
-#  asc:
-#  - key: ToolIndex
-#    value_type: 0
-#    value_str: '-1'
+# Drop the tool and go for sucking action
+- affordance_name: SwitchToolAction
+  asc:
+  - key: ToolIndex
+    value_type: 0
+    value_str: '-1'
 
-## open jaw action and reset robot
-#- affordance_name: OpenJawAction
-#  asc:
-#  - key: ''
-#    value_type: 0
-#    value_str: ''
+# open jaw action and reset robot
+- affordance_name: OpenJawAction
+  asc:
+  - key: ''
+    value_type: 0
+    value_str: ''
 
 #- affordance_name: CloseAndLevelJawAction
 #  asc:
