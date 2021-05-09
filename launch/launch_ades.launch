@@ -1,0 +1,8 @@
+<launch>
+        <!-- ////////////////////////////////LAUNCH ADESDB \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+        <arg name="home_orig" default="~/repo/ades_database_kitgripper"/>
+        <arg name="home_target" default="~/repo/ades_database_kitgripper"/>
+        <node name="uibk_libades_ros" type="adesdb" pkg="uibk_libades_ros" ns="orig" args="--home $(arg home_orig)" output="screen"/>
+
+        <node name="uibk_libades_ros" type="ades2_1db" pkg="uibk_libades_ros" ns="target" args="--home $(arg home_target)" output="screen"/>
+</launch>
