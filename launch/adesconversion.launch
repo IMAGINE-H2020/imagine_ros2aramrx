@@ -1,0 +1,7 @@
+<launch>
+ROS_NAMESPACE=/target rosrun uibk_libades_ros ades2db --home /common/homes/staff/imagine-user/repo/ades_database_kitgripper_git/ades2_1/ades2db
+ROS_NAMESPACE=/target rosrun uibk_libades_ros motiondb --home /common/homes/staff/imagine-user/repo/ades_database_kitgripper_git/ades2_1/motiondb
+ROS_NAMESPACE=/sym rosrun uibk_libades_ros ades2db --home /common/homes/staff/imagine-user/imagine_ws/src/imagine_ades/uibk_ades_db/ADESDB_v2_final/ades_db
+ROS_NAMESPACE=/subsym rosrun uibk_libades_ros adesdb --home ~/repo/ades_database_kitgripper
+rosrun uibk_libades_ros merge_symb_subsymb_db.py
+</launch>

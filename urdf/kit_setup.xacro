@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot name="kit_gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- ============================ define world ========================== -->
+    <link name="world"/>
+
+<!-- ============================ define KIT Base ========================== -->
+
+    <joint name="kit_base_joint" type="fixed">
+        <origin
+          xyz = "0.58077636  0.15348063  0.140803"
+          rpy = "${pi/2} 0 -${pi/2}"
+          />
+
+        <parent link="world" />
+        <child link="KITBase" />
+    </joint>
+
+    <link name="KITBase">
+    </link>
+
+<!-- ============================ define Stereo Camera ========================== -->
+    <joint name="stereo_camera_image_joint" type="fixed">
+        <origin xyz = "0.29054669189453125 0.2855022888183594 -0.2433302764892578"
+        rpy = "0.00902095390201 -0.773211425841 1.57543903385"/>
+
+        <parent link="KITBase" />
+        <child link="stereo_camera_image" />
+    </joint>
+
+    <link name="stereo_camera_image">
+    </link>
+
+    <joint name="stereo_camera_joint" type="fixed">
+      <origin
+          xyz = "0 0 0"
+          rpy = "0 0 ${pi/2}"
+          />
+
+      <parent link="stereo_camera_image" />
+      <child link="stereo_camera" />
+    </joint>
+
+    <link name="stereo_camera">
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+            <box size="0.10 0.05 0.05"/>
+          </geometry>
+          <material name="blue" />
+        </visual>
+    </link>
+
+<!-- ============================ define Basler Camera ========================== -->
+    <joint name="basler_camera_image_joint" type="fixed">
+        <origin
+            xyz = "0.28342413330078126 0.7854694213867187 -0.0249450798034668"
+            rpy = "-1.5512922749068763 -0.03081931588679528 3.1241579540550597"
+            />
+
+        <parent link="KITBase" />
+        <child link="basler_camera_image" />
+    </joint>
+
+    <link name="basler_camera_image">
+    </link>
+
+<!-- ============================ define KIT Pattern ========================== -->
+
+    <joint name="kit_pattern_joint" type="fixed">
+        <origin
+            xyz = "0.325 0.0065 0.0505"
+            rpy = "-${pi/2} ${pi/2} 0"
+            />
+
+        <parent link="KITBase" />
+        <child link="KITPattern2" />
+    </joint>
+
+    <link name="KITPattern2">
+    </link>
+
+    <joint name="kit_pattern_45_joint" type="fixed">
+        <origin
+            xyz = "0.01938 0  0.033805"
+            rpy = "0 ${pi/4} 0"
+            />
+
+        <parent link="KITPattern2" />
+        <child link="table_pattern_45" />
+    </joint>
+
+    <link name="table_pattern_45">
+    </link>
+
+
+</robot>
+

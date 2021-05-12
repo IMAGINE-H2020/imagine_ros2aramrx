@@ -24,7 +24,7 @@ sequence:
         z: 0.114
   - key: 'OnlySimulateAction'
     value_type: 0
-    value_str: 'No'
+    value_str: 'Yes'
 
 #- affordance_name: RotatingBaseAction
 #  asc:

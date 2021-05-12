@@ -1,20 +1,15 @@
 <launch>
-        <!-- ////////////////////////////////LAUNCH SCREW DETECTOR RELATED STUFF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-        <!-- node name="ugoe_screw_detection_ros" type="candidate_generator.py" pkg="ugoe_screw_detection_ros" output="screen"/ -->
 
-        <!-- ////////////////////////////////LAUNCH GAP DETECTOR RELATED STUFF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-        <node name="preprocessing_node" type="preprocessing_node" pkg="ugoe_gap_detection_ros" output="screen"/>
-        <!-- node name="ugoe_gap_detection_ros" type="gap_detector.py" pkg="ugoe_gap_detection_ros" output="screen"/ -->
-        <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ugoe_gap_detection_ros)/rviz_config.rviz" />
+  <arg name="model" default="$(find ros2armarx)/urdf/kit_setup.xacro" />
+  <arg name="gui" default="false" />
+  <!--arg name="rvizconfig" default="$(find hddtable)/rviz/urdf.rviz" /-->
 
-        <!-- ////////////////////////////////LAUNCH THE PERCEPTION WRAPPER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-        <node name="ugoe_imagine_ros_node" type="perception_wrapper.py" pkg="ugoe_imagine_ros" output="screen"/>
-        <node name="tilted_cloud_node" type="tilted_cloud.py" pkg="ugoe_imagine_ros" output="screen"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <param name="use_tf_static" value="true"/>
 
-        <!-- ////////////////////////////////LAUNCH THE CLOUD COLLECTOR \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-        <node name="cloud_collector_node" type="cloud_collector.py" pkg="ugoe_imagine_ros" output="screen"/>
-
-        <!-- ////////////////////////////////LAUNCH THE UI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-        <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="-s reconfigure"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <!--node name="rviz" pkg="rviz" type="rviz" required="true" /-->
 
 </launch>
